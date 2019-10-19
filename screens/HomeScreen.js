@@ -9,42 +9,104 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import { Slider } from "react-native-elements";
 
 import { MonoText } from "../components/StyledText";
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <View style={styles.getStartedContainer}>
-          <Text style={styles.getStartedText}>Get started by opening</Text>
+export default class HomeScreen extends React.Component {
+  state = {
+    value: 0
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}
+        >
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.getStartedText}>Get started by opening</Text>
+
+            <View
+              style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+            >
+              <MonoText>screens/HomeScreen.js</MonoText>
+            </View>
+          </View>
+          <View style={styles.sliderCon}>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                onValueChange={value => this.setState({ value })}
+                step="1"
+                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                onValueChange={value => this.setState({ value })}
+                step="1"
+                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                onValueChange={value => this.setState({ value })}
+                step="1"
+                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                onValueChange={value => this.setState({ value })}
+                step="1"
+                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                onValueChange={value => this.setState({ value })}
+                step="1"
+                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                onValueChange={value => this.setState({ value })}
+                step="1"
+                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+          </View>
+        </ScrollView>
+
+        {/* <View style={styles.tabBarInfoContainer}>
+          <Text style={styles.tabBarInfoText}>
+            This is a tab bar. You can edit it in:
+          </Text>
 
           <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+            style={[styles.codeHighlightContainer, styles.navigationFilename]}
           >
-            <MonoText>screens/HomeScreen.js</MonoText>
+            <MonoText style={styles.codeHighlightText}>
+              navigation/MainTabNavigator.js
+            </MonoText>
           </View>
-        </View>
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}
-        >
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
+        </View> */}
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 HomeScreen.navigationOptions = {
@@ -55,6 +117,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
+  },
+  sliderCon: {
+    flexDirection: "row",
+    flexWrap: "wrap"
+  },
+  sliderStyle: {
+    flex: 1,
+    // alignItems: "flex-start",
+    justifyContent: "center",
+    width: "15%"
   },
   developmentModeText: {
     marginBottom: 20,
