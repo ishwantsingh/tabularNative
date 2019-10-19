@@ -5,6 +5,8 @@ import { combineReducers } from "redux";
 
 import reducers from "./reducers";
 
+import db from "../../fb/config";
+
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBYFzxYn4H0eQA7DKkuPwGItBLJfKz8Hug",
 //   authDomain: "nutricheck.firebaseapp.com",
@@ -31,15 +33,16 @@ import reducers from "./reducers";
 
 // }
 
-// getDishes = () => {
-//   const snapshot = db.collection("dishes").get();
-//   let dataRecieved = snapshot.docs.map(doc => doc.data());
-//   console.log(dataRecieved, "boo");
-//   return snapshot.docs.map(doc => doc.data());
-// };
+async function getDishes() {
+  const snapshot = await db.collection("dishes").get();
+  let dataRecieved = snapshot.docs.map(doc => doc.data());
+  console.log(dataRecieved, "boo000");
+  return snapshot.docs.map(doc => doc.data());
+}
 
 const rootReducer = combineReducers({
-  reducers
+  reducers: reducers,
+  dishes: getDishes()
 });
 
 export default rootReducer;
