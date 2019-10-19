@@ -42,7 +42,7 @@ async function getDishes() {
 
 const rootReducer = combineReducers({
   reducers: reducers,
-  dishes: getDishes()
+  dishes: getDishes
 });
 
 export default rootReducer;
