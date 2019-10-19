@@ -7,7 +7,9 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { Provider } from "react-redux";
 
-import AppNavigator from "./navigation/AppNavigator";
+import store from "./state/store";
+
+//import AppNavigator from "./navigation/AppNavigator";
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
