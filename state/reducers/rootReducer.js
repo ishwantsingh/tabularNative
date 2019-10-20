@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 //import { Text, View } from "react-native";
 
 import reducers from "./reducers";
-
+import setDataReducer from "./setDataReducer";
 //import db from "../../fb/config";
 
 // class FillReducer extends React.Component {
@@ -47,7 +47,7 @@ import reducers from "./reducers";
 
 const rootReducer = combineReducers({
   reducers: reducers,
-  dishes: { superFinal: "superFinal" }
+  dishes: setDataReducer
 });
 
 export default rootReducer;

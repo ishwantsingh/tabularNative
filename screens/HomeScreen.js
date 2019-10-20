@@ -11,6 +11,7 @@ import {
 import { connect } from "react-redux";
 
 import getInfo from "../state/actions/actionCreators";
+import setData from "../state/actions/setDataAction";
 import DishList from "../dishComponents/DishList";
 import db from "../fb/config";
 
@@ -49,6 +50,7 @@ class HomeScreen extends React.Component {
       })
       .then(finalData => {
         this.setState({ superFinal: finalData });
+        this.props.setData(this.state.superFinal);
         // console.log("SUPER FINAL", this.state.superFinal);
       });
     // dataRecieved.then(data => {
@@ -188,7 +190,8 @@ class HomeScreen extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     getInfo: (cal, carb, fat, fiber, mineral, protein) =>
-      dispatch(getInfo(cal, carb, fat, fiber, mineral, protein))
+      dispatch(getInfo(cal, carb, fat, fiber, mineral, protein)),
+    setData: superFinal => dispatch(setData(superFinal))
   };
 };
 
