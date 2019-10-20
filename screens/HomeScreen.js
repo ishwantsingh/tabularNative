@@ -42,12 +42,22 @@ export default class HomeScreen extends React.Component {
     e == 1 ? this.setState({ fat: "High" }) : this.setState({ fat: "Low" });
     console.log("fat=>", this.state.fat);
   };
-  // handleChangeMineral = e => {
-  //   e == 1
-  //     ? this.setState({ mineral: "High" })
-  //     : this.setState({ mineral: "Low" });
-  //   console.log("mineral=>", this.state.mineral);
-  // };
+  handleChangeFiber = e => {
+    e == 1 ? this.setState({ fiber: "High" }) : this.setState({ fiber: "Low" });
+    console.log("fiber=>", this.state.fiber);
+  };
+  handleChangeMineral = e => {
+    e == 1
+      ? this.setState({ mineral: "High" })
+      : this.setState({ mineral: "Low" });
+    console.log("mineral=>", this.state.mineral);
+  };
+  handleChangeProtein = e => {
+    e == 1
+      ? this.setState({ protein: "High" })
+      : this.setState({ protein: "Low" });
+    console.log("protein=>", this.state.protein);
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -55,59 +65,75 @@ export default class HomeScreen extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View
-              style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-            >
-              <MonoText>screens/HomeScreen.js</MonoText>
-            </View>
-          </View>
+          <View style={styles.getStartedContainer}></View>
           <View style={styles.sliderCon}>
-            <View style={styles.sliderStyle}>
-              <Text>Cal</Text>
+            <View style={styles.sliderCon2}>
+              <View style={styles.sliderStyle}>
+                <Text>Cal</Text>
 
-              <Slider
-                value={this.state.value1}
-                step={1}
-                onValueChange={this.handleChangeCal}
-                testID="cal"
-              />
-              <Text>Value: {this.state.cal}</Text>
+                <Slider
+                  value={this.state.value1}
+                  step={1}
+                  onValueChange={this.handleChangeCal}
+                  testID="cal"
+                />
+                <Text>Value: {this.state.cal}</Text>
+              </View>
+              <View style={styles.sliderStyle}>
+                <Text>Carb</Text>
+
+                <Slider
+                  value={this.state.value2}
+                  step={1}
+                  onValueChange={this.handleChangeCarb}
+                  testID="carb"
+                />
+                <Text>Value: {this.state.carb}</Text>
+              </View>
+              <View style={styles.sliderStyle}>
+                <Text>Fat</Text>
+
+                <Slider
+                  value={this.state.value3}
+                  step={1}
+                  onValueChange={this.handleChangeFat}
+                  testID="fat"
+                />
+                <Text>Value: {this.state.fat}</Text>
+              </View>
             </View>
-            <View style={styles.sliderStyle}>
-              <Text>Carb</Text>
-
-              <Slider
-                value={this.state.value2}
-                step={1}
-                onValueChange={this.handleChangeCarb}
-                testID="carb"
-              />
-              <Text>Value: {this.state.carb}</Text>
+            <View style={styles.sliderCon2}>
+              <View style={styles.sliderStyle}>
+                <Text>Fiber</Text>
+                <Slider
+                  value={this.state.value4}
+                  step={1}
+                  onValueChange={this.handleChangeFiber}
+                  testID="fiber"
+                />
+                <Text>Value: {this.state.fiber}</Text>
+              </View>
+              <View style={styles.sliderStyle}>
+                <Text>Mineral</Text>
+                <Slider
+                  value={this.state.value5}
+                  step={1}
+                  onValueChange={this.handleChangeMineral}
+                  testID="mineral"
+                />
+                <Text>Value: {this.state.mineral}</Text>
+              </View>
+              <View style={styles.sliderStyle}>
+                <Text>Protein</Text>
+                <Slider
+                  value={this.state.value6}
+                  step={1}
+                  onValueChange={this.handleChangeProtein}
+                  testID="protein"
+                />
+                <Text>Value: {this.state.protein}</Text>
+              </View>
             </View>
-            <View style={styles.sliderStyle}>
-              <Text>Fat</Text>
-
-              <Slider
-                value={this.state.value3}
-                step={1}
-                onValueChange={this.handleChangeFat}
-                testID="fat"
-              />
-              <Text>Value: {this.state.fat}</Text>
-            </View>
-            {/* <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value1}
-                step={1}
-                onValueChange={this.handleChangeMineral}
-                testID="mineral"
-              />
-              <Text>Value: {this.state.mineral}</Text>
-            </View> */}
-
             {/* <View style={styles.sliderStyle}>
               <Slider
                 value={this.state.value}
@@ -178,6 +204,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   sliderCon: {
+    flexDirection: "column",
+    flexWrap: "wrap"
+  },
+  sliderCon2: {
     flexDirection: "row",
     flexWrap: "wrap"
   },
@@ -186,6 +216,8 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 2,
     marginHorizontal: 10,
+    marginVertical: 5,
+    borderRadius: 6,
     // alignItems: "flex-start",
     justifyContent: "center"
     // width: 150
