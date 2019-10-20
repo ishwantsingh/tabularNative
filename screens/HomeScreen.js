@@ -7,16 +7,47 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  Slider,
+  Switch
 } from "react-native";
-import { Slider } from "react-native-elements";
+//import { Slider } from "react-native-elements";
 
 import { MonoText } from "../components/StyledText";
 
 export default class HomeScreen extends React.Component {
   state = {
-    value: 0
+    cal: "Low",
+    carb: "Low",
+    fat: "Low",
+    fiber: "Low",
+    mineral: "Low",
+    protein: "Low",
+    value1: 0,
+    value2: 0,
+    value3: 0,
+    value4: 0,
+    value5: 0,
+    value6: 0
   };
+  handleChangeCal = e => {
+    e == 1 ? this.setState({ cal: "High" }) : this.setState({ cal: "Low" });
+    console.log("cal=>", this.state.cal);
+  };
+  handleChangeCarb = e => {
+    e == 1 ? this.setState({ carb: "High" }) : this.setState({ carb: "Low" });
+    console.log("carb=>", this.state.carb);
+  };
+  handleChangeFat = e => {
+    e == 1 ? this.setState({ fat: "High" }) : this.setState({ fat: "Low" });
+    console.log("fat=>", this.state.fat);
+  };
+  // handleChangeMineral = e => {
+  //   e == 1
+  //     ? this.setState({ mineral: "High" })
+  //     : this.setState({ mineral: "Low" });
+  //   console.log("mineral=>", this.state.mineral);
+  // };
   render() {
     return (
       <View style={styles.container}>
@@ -35,11 +66,69 @@ export default class HomeScreen extends React.Component {
           </View>
           <View style={styles.sliderCon}>
             <View style={styles.sliderStyle}>
+              <Text>Cal</Text>
+
+              <Slider
+                value={this.state.value1}
+                step={1}
+                onValueChange={this.handleChangeCal}
+                testID="cal"
+              />
+              <Text>Value: {this.state.cal}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Text>Carb</Text>
+
+              <Slider
+                value={this.state.value2}
+                step={1}
+                onValueChange={this.handleChangeCarb}
+                testID="carb"
+              />
+              <Text>Value: {this.state.carb}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Text>Fat</Text>
+
+              <Slider
+                value={this.state.value3}
+                step={1}
+                onValueChange={this.handleChangeFat}
+                testID="fat"
+              />
+              <Text>Value: {this.state.fat}</Text>
+            </View>
+            {/* <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value1}
+                step={1}
+                onValueChange={this.handleChangeMineral}
+                testID="mineral"
+              />
+              <Text>Value: {this.state.mineral}</Text>
+            </View> */}
+
+            {/* <View style={styles.sliderStyle}>
               <Slider
                 value={this.state.value}
+                step={1}
                 onValueChange={value => this.setState({ value })}
-                step="1"
-                debugTouchArea="true"
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                step={1}
+                onValueChange={value => this.setState({ value })}
+              />
+              <Text>Value: {this.state.value}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Slider
+                value={this.state.value}
+                step={1}
+                onValueChange={value => this.setState({ value })}
               />
               <Text>Value: {this.state.value}</Text>
             </View>
@@ -47,47 +136,17 @@ export default class HomeScreen extends React.Component {
               <Slider
                 value={this.state.value}
                 onValueChange={value => this.setState({ value })}
-                step="1"
-                debugTouchArea="true"
+                step={1}
               />
               <Text>Value: {this.state.value}</Text>
             </View>
             <View style={styles.sliderStyle}>
-              <Slider
+              <Switch
                 value={this.state.value}
                 onValueChange={value => this.setState({ value })}
-                step="1"
-                debugTouchArea="true"
               />
               <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                onValueChange={value => this.setState({ value })}
-                step="1"
-                debugTouchArea="true"
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                onValueChange={value => this.setState({ value })}
-                step="1"
-                debugTouchArea="true"
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                onValueChange={value => this.setState({ value })}
-                step="1"
-                debugTouchArea="true"
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
+            </View> */}
           </View>
         </ScrollView>
 
@@ -124,10 +183,14 @@ const styles = StyleSheet.create({
   },
   sliderStyle: {
     flex: 1,
+    borderColor: "black",
+    borderWidth: 2,
+    marginHorizontal: 10,
     // alignItems: "flex-start",
-    justifyContent: "center",
-    width: "15%"
+    justifyContent: "center"
+    // width: 150
   },
+  // slider1: { step: 1 },
   developmentModeText: {
     marginBottom: 20,
     color: "rgba(0,0,0,0.4)",

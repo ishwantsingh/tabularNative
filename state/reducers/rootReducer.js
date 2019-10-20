@@ -36,7 +36,7 @@ import db from "../../fb/config";
 async function getDishes() {
   const snapshot = await db.collection("dishes").get();
   let dataRecieved = snapshot.docs.map(doc => doc.data());
-  console.log(dataRecieved, "boo000");
+  // console.log(dataRecieved, "boo000");
   return snapshot.docs.map(doc => doc.data());
 }
 
