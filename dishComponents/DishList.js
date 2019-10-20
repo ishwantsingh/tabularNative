@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
+import DishIcon from "./DishIcon";
+
 function DishList(props) {
   console.log("nutCheck=>", props.nutCheck);
   console.log("props =>", props);
@@ -28,8 +30,12 @@ function DishList(props) {
                 //  console.log("boo2", dish.nut);
                 //   if (dish.nut === props.nutCheck) {
                 return (
-                  <Text key={dish.id}>{dish.name}</Text>
-                  // <DishIcon dish={dish} nutCheck={props.nutCheck} key={dish.id} />
+                  //  <Text key={dish.id}>{dish.name}</Text>
+                  <DishIcon
+                    dish={dish}
+                    nutCheck={props.nutCheck}
+                    key={dish.id}
+                  />
                 );
                 //   } else {
                 //     return <h4>No Maches Found</h4>;
