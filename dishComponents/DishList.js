@@ -18,32 +18,28 @@ function DishList(props) {
 
   if (props.dishes) {
     return (
-      <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <View style={styles.getStartedContainer}>
-            {/* <Text>oof</Text> */}
-            {props.dishes &&
-              props.dishes.map(dish => {
-                //  console.log("boo2", dish.nut);
-                //   if (dish.nut === props.nutCheck) {
-                return (
-                  //  <Text key={dish.id}>{dish.name}</Text>
-                  <DishIcon
-                    dish={dish}
-                    nutCheck={props.nutCheck}
-                    key={dish.id}
-                  />
-                );
-                //   } else {
-                //     return <h4>No Maches Found</h4>;
-                //   }
-              })}
-          </View>
-        </ScrollView>
-      </View>
+      //   <View style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+      >
+        <View style={styles.getStartedContainer}>
+          {/* <Text>oof</Text> */}
+          {props.dishes &&
+            props.dishes.map(dish => {
+              //  console.log("boo2", dish.nut);
+              //   if (dish.nut === props.nutCheck) {
+              return (
+                //  <Text key={dish.id}>{dish.name}</Text>
+                <DishIcon dish={dish} nutCheck={props.nutCheck} key={dish.id} />
+              );
+              //   } else {
+              //     return <h4>No Maches Found</h4>;
+              //   }
+            })}
+        </View>
+      </ScrollView>
+      //   </View>
     );
   } else {
     return <ActivityIndicator size="large" color="#0000ff" />;
@@ -66,10 +62,11 @@ export default connect(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    flexGrow: 1
   },
   contentContainer: {
-    paddingTop: 10
+    paddingTop: 0
   },
   getStartedContainer: {
     alignItems: "center",

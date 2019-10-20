@@ -111,13 +111,13 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
-      height: 2
+      width: 0.3,
+      height: 1.5
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     borderRightWidth: 0.2,
-    borderColor: "#000",
+    borderColor: "#B4B4B4",
     elevation: 5
   },
   cardImage: {
@@ -134,6 +134,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRightWidth: 0.2,
     // borderLeftWidth: 0.5,
-    borderColor: "#000"
+    borderColor: "#B4B4B4"
   }
 });

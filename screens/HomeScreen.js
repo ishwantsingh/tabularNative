@@ -195,20 +195,22 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+HomeScreen.navigationOptions = {
+  title: "NutriCheck"
+};
+
 export default connect(
   null,
   mapDispatchToProps
 )(HomeScreen);
 
-HomeScreen.navigationOptions = {
-  title: "Homeee"
-};
-
 const styles = StyleSheet.create({
   borderCheck: {
     // borderWidth: 1,
     // borderColor: "black",
-    flex: 2
+    flex: 2,
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
   container: {
     flex: 1,
@@ -228,6 +230,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginHorizontal: 10,
     marginVertical: 5,
+    paddingHorizontal: 2,
     borderRadius: 6,
     // alignItems: "flex-start",
     justifyContent: "center"
@@ -236,6 +239,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     justifyContent: "flex-start",
     paddingTop: 5
+    // borderWidth: 1,
+    // borderColor: "red"
   },
   welcomeContainer: {
     alignItems: "center",
@@ -246,7 +251,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 20
   },
-
   navigationFilename: {
     marginTop: 5
   }
