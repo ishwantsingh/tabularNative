@@ -46,18 +46,13 @@ export default function DishIcon(props) {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.card}>
-            {/* <Image
-            source={{ url: `${props.dish.image}` }}
-            style={styles.cardImage}
-         /> */}
             <Image
               source={{ uri: `${props.dish.image}` }}
               style={styles.cardImage}
             />
-            {/* <Image
-         source={`${props.dish.image}`}
-         style={styles.cardImage}
-      /> */}
+            <View style={styles.cardText}>
+              <Text style={styles.text}>{props.dish.name}</Text>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -99,22 +94,46 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
+    // borderWidth: 1,
+    // borderColor: "black"
   },
   contentContainer: {
     paddingTop: 0
   },
   getStartedContainer: {
-    alignItems: "center",
-    marginHorizontal: 5
+    alignItems: "center"
   },
   card: {
     alignItems: "center",
-    marginHorizontal: 2,
-    width: 250,
-    height: 300
+    width: 320,
+    height: 360,
+    marginBottom: 65,
+    borderRadius: 6,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    borderRightWidth: 0.2,
+    borderColor: "#000",
+    elevation: 5
   },
   cardImage: {
-    width: 250,
-    height: 300
+    width: 320,
+    height: 320,
+    borderTopRightRadius: 6,
+    borderTopLeftRadius: 6
+  },
+  cardText: {
+    width: 320,
+    height: 40,
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRightWidth: 0.2,
+    // borderLeftWidth: 0.5,
+    borderColor: "#000"
   }
 });

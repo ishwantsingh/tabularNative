@@ -179,7 +179,7 @@ class HomeScreen extends React.Component {
             <Button onPress={this.handleSubmit} title="Show Recipes" />
           </View>
         </ScrollView>
-        <View style={styles.container}>
+        <View style={styles.borderCheck}>
           <DishList />
         </View>
       </View>
@@ -201,10 +201,15 @@ export default connect(
 )(HomeScreen);
 
 HomeScreen.navigationOptions = {
-  title: "Home"
+  title: "Homeee"
 };
 
 const styles = StyleSheet.create({
+  borderCheck: {
+    // borderWidth: 1,
+    // borderColor: "black",
+    flex: 2
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff"
@@ -219,7 +224,7 @@ const styles = StyleSheet.create({
   },
   sliderStyle: {
     flex: 1,
-    borderColor: "black",
+    borderColor: "#2196F3",
     borderWidth: 2,
     marginHorizontal: 10,
     marginVertical: 5,
@@ -229,16 +234,17 @@ const styles = StyleSheet.create({
     // width: 150
   },
   contentContainer: {
-    paddingTop: 30
+    justifyContent: "flex-start",
+    paddingTop: 5
   },
   welcomeContainer: {
     alignItems: "center",
-    marginTop: 10,
-    marginBottom: 20
+    marginTop: 5,
+    marginBottom: 10
   },
   getStartedContainer: {
     alignItems: "center",
-    marginHorizontal: 50
+    marginHorizontal: 20
   },
 
   navigationFilename: {
