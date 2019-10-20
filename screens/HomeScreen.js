@@ -1,8 +1,6 @@
 import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -13,6 +11,8 @@ import {
 import { connect } from "react-redux";
 
 import getInfo from "../state/actions/actionCreators";
+import DishList from "../dishComponents/DishList";
+import db from "../fb/config";
 
 class HomeScreen extends React.Component {
   state = {
@@ -27,8 +27,36 @@ class HomeScreen extends React.Component {
     value3: 0,
     value4: 0,
     value5: 0,
-    value6: 0
+    value6: 0,
+    superFinal: []
   };
+
+  componentDidMount() {
+    // const snapshot = await db.collection("dishes").get();
+    // dataRecieved = snapshot.docs.map(doc => doc.data());
+
+    async function getDishes() {
+      const snapshot = await db.collection("dishes").get();
+      dataRecieved = snapshot.docs.map(doc => doc.data());
+
+      return dataRecieved;
+    }
+    getDishes()
+      .then(function(res) {
+        let finalData = res;
+        //  console.log("FINAL DATA", finalData);
+        return finalData;
+      })
+      .then(finalData => {
+        this.setState({ superFinal: finalData });
+        // console.log("SUPER FINAL", this.state.superFinal);
+      });
+    // dataRecieved.then(data => {
+    //   this.setState({ superFinal: data });
+    // });
+    //   console.log("offoooo", dataRecieved);
+    // console.log("XXXXXXXXXXXX", this.state.superFinal);
+  }
   handleChangeCal = e => {
     e == 1 ? this.setState({ cal: "High" }) : this.setState({ cal: "Low" });
     console.log("cal=>", this.state.cal);
@@ -71,6 +99,8 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+    console.log("SUPER FINAL", this.state.superFinal);
+
     return (
       <View style={styles.container}>
         <ScrollView
@@ -147,6 +177,9 @@ class HomeScreen extends React.Component {
             <Button onPress={this.handleSubmit} title="Show Recipes" />
           </View>
         </ScrollView>
+        <View style={styles.container}>
+          <DishList />
+        </View>
       </View>
     );
   }
@@ -192,14 +225,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
     // width: 150
   },
-  // slider1: { step: 1 },
-  developmentModeText: {
-    marginBottom: 20,
-    color: "rgba(0,0,0,0.4)",
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: "center"
-  },
   contentContainer: {
     paddingTop: 30
   },
@@ -208,71 +233,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: "contain",
-    marginTop: 3,
-    marginLeft: -10
-  },
   getStartedContainer: {
     alignItems: "center",
     marginHorizontal: 50
   },
-  homeScreenFilename: {
-    marginVertical: 7
-  },
-  codeHighlightText: {
-    color: "rgba(96,100,109, 0.8)"
-  },
-  codeHighlightContainer: {
-    backgroundColor: "rgba(0,0,0,0.05)",
-    borderRadius: 3,
-    paddingHorizontal: 4
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: "rgba(96,100,109, 1)",
-    lineHeight: 24,
-    textAlign: "center"
-  },
-  tabBarInfoContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: "black",
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3
-      },
-      android: {
-        elevation: 20
-      }
-    }),
-    alignItems: "center",
-    backgroundColor: "#fbfbfb",
-    paddingVertical: 20
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: "rgba(96,100,109, 1)",
-    textAlign: "center"
-  },
+
   navigationFilename: {
     marginTop: 5
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: "center"
-  },
-  helpLink: {
-    paddingVertical: 15
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: "#2e78b7"
   }
 });
