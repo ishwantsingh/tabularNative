@@ -57,60 +57,7 @@
 //     //           <div className="card-content">
 //     //             <p>{props.dish.name}</p>
 //     //           </div>
-//     //           <Popup
-//     //             trigger={<button> More Info!</button>}
-//     //             modal
-//     //             closeOnDocumentClick
-//     //             className="container-all-1"
-//     //           >
-//     //             <br />
-//     //             <div className="container-all">
-//     //               {console.log(props.dish.link)}
-//     //               <h5>{props.dish.name}</h5>
-//     //               <img src={props.dish.image} className="img-2" />
-//     //               <iframe
-//     //                 width="380"
-//     //                 height="180"
-//     //                 src={`${props.dish.link}`}
-//     //                 frameborder="0"
-//     //                 allowfullscreen
-//     //               ></iframe>
-//     //               <h5>Ingredients</h5>
-//     //               {props.dish.ing.map(step => {
-//     //                 return <Ingre step={step} key={props.dish.id} />;
-//     //               })}
-//     //               <h5>Recipe</h5>
-//     //               {Object.keys(props.dish.steps).map((step, i) => (
-//     //                 <Recipe
-//     //                   step={step}
-//     //                   key={i}
-//     //                   value={props.dish.steps[step]}
-//     //                   link={props.dish.link}
-//     //                 />
-//     //               ))}
-//     //               <h5>Suggested Drink: {props.dish.drink}</h5>
-//     //               <div>
-//     //                 <a href="https://www.swiggy.com/" target="_blank">
-//     //                   {" "}
-//     //                   <button className="waves-effect btn">
-//     //                     Get this on Swiggy!
-//     //                   </button>
-//     //                 </a>
-//     //                 <a href="https://www.zomato.com/" target="_blank">
-//     //                   <button className="waves-effect btn">
-//     //                     Get this on Zomato!
-//     //                   </button>
-//     //                 </a>
-//     //                 <a href="https://www.ubereats.com/" target="_blank">
-//     //                   <button className="waves-effect btn">
-//     //                     Get this on UberEats!
-//     //                   </button>
-//     //                 </a>
-//     //               </div>
-//     //               <br />
-//     //               <br />
-//     //             </div>
-//     //           </Popup>
+//     //
 //     //         </div>
 //     //       </div>
 //     //     </div>

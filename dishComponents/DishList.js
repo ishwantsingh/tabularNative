@@ -22,7 +22,19 @@ function DishList(props) {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.getStartedContainer}>
-            <Text>oof</Text>
+            {/* <Text>oof</Text> */}
+            {props.dishes &&
+              props.dishes.map(dish => {
+                //  console.log("boo2", dish.nut);
+                //   if (dish.nut === props.nutCheck) {
+                return (
+                  <Text key={dish.id}>{dish.name}</Text>
+                  // <DishIcon dish={dish} nutCheck={props.nutCheck} key={dish.id} />
+                );
+                //   } else {
+                //     return <h4>No Maches Found</h4>;
+                //   }
+              })}
           </View>
         </ScrollView>
       </View>
@@ -33,10 +45,10 @@ function DishList(props) {
 }
 
 const mapStateToProps = state => {
-  console.log("state->", state);
+  console.log("SUPERRRRRRRRRRRRR state->", state.dishes.superFinal);
   return {
     nutCheck: state.reducers,
-    dishes: state.getDishes
+    dishes: state.dishes.superFinal
   };
 };
 
