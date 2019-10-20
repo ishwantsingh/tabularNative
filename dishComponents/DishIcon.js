@@ -10,7 +10,7 @@ import {
 //import { connect } from "react-redux";
 
 export default function DishIcon(props) {
-  console.log("nutCheck=>", props.nutCheck);
+  //  console.log("nutCheck=>", props.nutCheck);
   function isEquivalent(a, b) {
     // Create arrays of property names
     var aProps = Object.getOwnPropertyNames(a);
@@ -38,7 +38,9 @@ export default function DishIcon(props) {
   }
   // console.log(props.dish.nut, props.nutCheck);
   if (isEquivalent(props.dish.nut, props.nutCheck)) {
-    console.log(props.dish.image, "boonoooooo");
+    // console.log(props.dish.image, "boonoooooo");
+    console.log("boo2", props.navigation);
+
     return (
       <View style={styles.container}>
         <ScrollView
@@ -52,6 +54,10 @@ export default function DishIcon(props) {
             />
             <View style={styles.cardText}>
               <Text style={styles.text}>{props.dish.name}</Text>
+              <Button
+                title="Go to Details"
+                onPress={() => props.navigation.navigate("Links")}
+              />
             </View>
           </View>
         </ScrollView>
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
   card: {
     alignItems: "center",
     width: 320,
-    height: 360,
+    height: 380,
     marginBottom: 65,
     borderRadius: 6,
     shadowColor: "#000",
@@ -122,16 +128,16 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     width: 320,
-    height: 320,
+    height: 300,
     borderTopRightRadius: 6,
     borderTopLeftRadius: 6
   },
   cardText: {
     width: 320,
-    height: 40,
+    height: 80,
     backgroundColor: "#FFFFFF",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     borderRightWidth: 0.2,
     // borderLeftWidth: 0.5,
     borderColor: "#B4B4B4"

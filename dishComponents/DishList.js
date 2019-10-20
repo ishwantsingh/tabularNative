@@ -12,8 +12,8 @@ import { connect } from "react-redux";
 import DishIcon from "./DishIcon";
 
 function DishList(props) {
-  console.log("nutCheck=>", props.nutCheck);
-  console.log("props =>", props);
+  // console.log("nutCheck=>", props.nutCheck);
+  // console.log("props =>", props);
   //  console.log("props =>", Object.values(props.dishes));
 
   if (props.dishes) {
@@ -27,11 +27,16 @@ function DishList(props) {
           {/* <Text>oof</Text> */}
           {props.dishes &&
             props.dishes.map(dish => {
-              //  console.log("boo2", dish.nut);
+              //   console.log("boo2", props.props);
               //   if (dish.nut === props.nutCheck) {
               return (
                 //  <Text key={dish.id}>{dish.name}</Text>
-                <DishIcon dish={dish} nutCheck={props.nutCheck} key={dish.id} />
+                <DishIcon
+                  dish={dish}
+                  nutCheck={props.nutCheck}
+                  key={dish.id}
+                  navigation={props.props.navigation}
+                />
               );
               //   } else {
               //     return <h4>No Maches Found</h4>;
@@ -47,7 +52,7 @@ function DishList(props) {
 }
 
 const mapStateToProps = state => {
-  console.log("SUPERRRRRRRRRRRRR state->", state.dishes.superFinal);
+  // console.log("SUPERRRRRRRRRRRRR state->", state.dishes.superFinal);
   return {
     nutCheck: state.reducers,
     dishes: state.dishes.superFinal

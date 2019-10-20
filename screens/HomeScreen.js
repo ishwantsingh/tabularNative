@@ -61,35 +61,35 @@ class HomeScreen extends React.Component {
   }
   handleChangeCal = e => {
     e == 1 ? this.setState({ cal: "High" }) : this.setState({ cal: "Low" });
-    console.log("cal=>", this.state.cal);
+    // console.log("cal=>", this.state.cal);
   };
   handleChangeCarb = e => {
     e == 1 ? this.setState({ carb: "High" }) : this.setState({ carb: "Low" });
-    console.log("carb=>", this.state.carb);
+    //  console.log("carb=>", this.state.carb);
   };
   handleChangeFat = e => {
     e == 1 ? this.setState({ fat: "High" }) : this.setState({ fat: "Low" });
-    console.log("fat=>", this.state.fat);
+    //  console.log("fat=>", this.state.fat);
   };
   handleChangeFiber = e => {
     e == 1 ? this.setState({ fiber: "High" }) : this.setState({ fiber: "Low" });
-    console.log("fiber=>", this.state.fiber);
+    // console.log("fiber=>", this.state.fiber);
   };
   handleChangeMineral = e => {
     e == 1
       ? this.setState({ mineral: "High" })
       : this.setState({ mineral: "Low" });
-    console.log("mineral=>", this.state.mineral);
+    //  console.log("mineral=>", this.state.mineral);
   };
   handleChangeProtein = e => {
     e == 1
       ? this.setState({ protein: "High" })
       : this.setState({ protein: "Low" });
-    console.log("protein=>", this.state.protein);
+    // console.log("protein=>", this.state.protein);
   };
 
   handleSubmit = () => {
-    console.log("b", this.state);
+    //  console.log("b", this.state);
     this.props.getInfo(
       this.state.cal,
       this.state.carb,
@@ -101,7 +101,7 @@ class HomeScreen extends React.Component {
   };
 
   render() {
-    console.log("SUPER FINAL", this.state.superFinal);
+    // console.log("SUPER FINAL", this.state.superFinal);
 
     return (
       <View style={styles.container}>
@@ -180,7 +180,7 @@ class HomeScreen extends React.Component {
           </View>
         </ScrollView>
         <View style={styles.borderCheck}>
-          <DishList />
+          <DishList props={this.props} />
         </View>
       </View>
     );
