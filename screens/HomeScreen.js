@@ -70,7 +70,6 @@ export default class HomeScreen extends React.Component {
             <View style={styles.sliderCon2}>
               <View style={styles.sliderStyle}>
                 <Text>Cal</Text>
-
                 <Slider
                   value={this.state.value1}
                   step={1}
@@ -81,7 +80,6 @@ export default class HomeScreen extends React.Component {
               </View>
               <View style={styles.sliderStyle}>
                 <Text>Carb</Text>
-
                 <Slider
                   value={this.state.value2}
                   step={1}
@@ -92,7 +90,6 @@ export default class HomeScreen extends React.Component {
               </View>
               <View style={styles.sliderStyle}>
                 <Text>Fat</Text>
-
                 <Slider
                   value={this.state.value3}
                   step={1}
@@ -134,61 +131,8 @@ export default class HomeScreen extends React.Component {
                 <Text>Value: {this.state.protein}</Text>
               </View>
             </View>
-            {/* <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                step={1}
-                onValueChange={value => this.setState({ value })}
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                step={1}
-                onValueChange={value => this.setState({ value })}
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                step={1}
-                onValueChange={value => this.setState({ value })}
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Slider
-                value={this.state.value}
-                onValueChange={value => this.setState({ value })}
-                step={1}
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View>
-            <View style={styles.sliderStyle}>
-              <Switch
-                value={this.state.value}
-                onValueChange={value => this.setState({ value })}
-              />
-              <Text>Value: {this.state.value}</Text>
-            </View> */}
           </View>
         </ScrollView>
-
-        {/* <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>
-            This is a tab bar. You can edit it in:
-          </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.navigationFilename]}
-          >
-            <MonoText style={styles.codeHighlightText}>
-              navigation/MainTabNavigator.js
-            </MonoText>
-          </View>
-        </View> */}
       </View>
     );
   }
