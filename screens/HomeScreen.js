@@ -6,16 +6,15 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
   Slider,
-  Switch
+  Button
 } from "react-native";
-//import { Slider } from "react-native-elements";
+import { connect } from "react-redux";
 
-import { MonoText } from "../components/StyledText";
+import getInfo from "../state/actions/actionCreators";
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   state = {
     cal: "Low",
     carb: "Low",
@@ -58,6 +57,19 @@ export default class HomeScreen extends React.Component {
       : this.setState({ protein: "Low" });
     console.log("protein=>", this.state.protein);
   };
+
+  handleSubmit = () => {
+    console.log("b", this.state);
+    this.props.getInfo(
+      this.state.cal,
+      this.state.carb,
+      this.state.fat,
+      this.state.fiber,
+      this.state.mineral,
+      this.state.protein
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -131,12 +143,26 @@ export default class HomeScreen extends React.Component {
                 <Text>Value: {this.state.protein}</Text>
               </View>
             </View>
+
+            <Button onPress={this.handleSubmit} title="Show Recipes" />
           </View>
         </ScrollView>
       </View>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getInfo: (cal, carb, fat, fiber, mineral, protein) =>
+      dispatch(getInfo(cal, carb, fat, fiber, mineral, protein))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(HomeScreen);
 
 HomeScreen.navigationOptions = {
   title: "Home"
