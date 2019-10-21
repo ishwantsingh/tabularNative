@@ -39,7 +39,7 @@ export default function DishIcon(props) {
   // console.log(props.dish.nut, props.nutCheck);
   if (isEquivalent(props.dish.nut, props.nutCheck)) {
     // console.log(props.dish.image, "boonoooooo");
-    console.log("boo2", props.navigation);
+    //   console.log("boo2", props.navigation);
 
     return (
       <View style={styles.container}>
@@ -56,7 +56,11 @@ export default function DishIcon(props) {
               <Text style={styles.text}>{props.dish.name}</Text>
               <Button
                 title="Go to Details"
-                onPress={() => props.navigation.navigate("Links")}
+                onPress={() =>
+                  props.navigation.navigate("Links", {
+                    id: props.dish.id
+                  })
+                }
               />
             </View>
           </View>
