@@ -10,6 +10,7 @@ import {
 import { connect } from "react-redux";
 
 import Ingre from "../dishComponents/Ingre";
+import Recipe from "../dishComponents/Recipe";
 
 class LinksScreen extends React.Component {
   render() {
@@ -38,6 +39,12 @@ class LinksScreen extends React.Component {
                       return <Ingre step={step} key={JSON.parse(DishId)} />;
                     })}
                     {/* </View> */}
+                    <View style={styles.dishHeader}>
+                      <Text style={styles.text}>Recipe</Text>
+                    </View>
+                    {Object.keys(dish.steps).map((step, i) => (
+                      <Recipe step={step} key={i} value={dish.steps[step]} />
+                    ))}
                   </View>
                 );
               } else {
