@@ -5,7 +5,8 @@ import {
   Text,
   View,
   Image,
-  ActivityIndicator
+  ActivityIndicator,
+  Button
 } from "react-native";
 import { connect } from "react-redux";
 
@@ -29,6 +30,14 @@ class SettingsScreen extends React.Component {
                   />
                   <View style={styles.cardText}>
                     <Text style={styles.text}>{dish.name}</Text>
+                    <Button
+                      title="Go to Details"
+                      onPress={() =>
+                        this.props.navigation.navigate("Links", {
+                          id: dish.id
+                        })
+                      }
+                    />
                   </View>
                 </View>
               );
