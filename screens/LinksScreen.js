@@ -34,17 +34,18 @@ class LinksScreen extends React.Component {
                     {/* <View style={styles.cardText2}> */}
                     <View style={styles.dishHeader}>
                       <Text style={styles.text}>Ingredients</Text>
+
+                      {dish.ing.map(step => {
+                        return <Ingre step={step} key={JSON.parse(DishId)} />;
+                      })}
                     </View>
-                    {dish.ing.map(step => {
-                      return <Ingre step={step} key={JSON.parse(DishId)} />;
-                    })}
                     {/* </View> */}
                     <View style={styles.dishHeader}>
                       <Text style={styles.text}>Recipe</Text>
+                      {Object.keys(dish.steps).map((step, i) => (
+                        <Recipe step={step} key={i} value={dish.steps[step]} />
+                      ))}
                     </View>
-                    {Object.keys(dish.steps).map((step, i) => (
-                      <Recipe step={step} key={i} value={dish.steps[step]} />
-                    ))}
                   </View>
                 );
               } else {
@@ -60,8 +61,10 @@ class LinksScreen extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          <Text style={styles.bigText}>All Dishes</Text>
-          {this.props.dishes &&
+          <Text style={styles.bigText}>
+            Please select a dish to see its details
+          </Text>
+          {/* {this.props.dishes &&
             this.props.dishes.map(dish => {
               return (
                 <View style={styles.card}>
@@ -74,7 +77,7 @@ class LinksScreen extends React.Component {
                   </View>
                 </View>
               );
-            })}
+            })} */}
         </ScrollView>
       );
     }
@@ -113,7 +116,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    marginBottom: 10
+    marginBottom: 10,
+    alignSelf: "center"
   },
   card: {
     alignItems: "center",
@@ -162,9 +166,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly"
   },
   dishHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "flex-start",
+    justifyContent: "center",
+    width: "90%"
   },
   dishContainer: {
     alignItems: "center",
