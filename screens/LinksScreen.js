@@ -8,7 +8,8 @@ import {
   ActivityIndicator
 } from "react-native";
 import { connect } from "react-redux";
-import DishIcon from "../dishComponents/DishIcon";
+
+import Ingre from "../dishComponents/Ingre";
 
 class LinksScreen extends React.Component {
   render() {
@@ -22,14 +23,21 @@ class LinksScreen extends React.Component {
             this.props.dishes.map(dish => {
               if (dish.id == JSON.parse(DishId)) {
                 return (
-                  <View style={styles.card}>
+                  <View style={styles.dishContainer}>
                     <Image
                       source={{ uri: `${dish.image}` }}
-                      style={styles.cardImage}
+                      style={styles.cardImage2}
                     />
-                    <View style={styles.cardText}>
-                      <Text style={styles.text}>{dish.name}</Text>
+                    <Text style={{ fontSize: 30 }}>{dish.name}</Text>
+
+                    {/* <View style={styles.cardText2}> */}
+                    <View style={styles.dishHeader}>
+                      <Text style={styles.text}>Ingredients</Text>
                     </View>
+                    {dish.ing.map(step => {
+                      return <Ingre step={step} key={JSON.parse(DishId)} />;
+                    })}
+                    {/* </View> */}
                   </View>
                 );
               } else {
@@ -67,7 +75,6 @@ class LinksScreen extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("SUPERRRRRRRRRRRRR state->", state.dishes.superFinal);
   return {
     dishes: state.dishes.superFinal
   };
@@ -97,6 +104,10 @@ const styles = StyleSheet.create({
     fontSize: 40,
     marginBottom: 10
   },
+  text: {
+    fontSize: 20,
+    marginBottom: 10
+  },
   card: {
     alignItems: "center",
     width: 320,
@@ -120,6 +131,14 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 6,
     borderTopLeftRadius: 6
   },
+  cardImage2: {
+    width: "90%",
+    height: 300,
+    borderTopRightRadius: 6,
+    borderTopLeftRadius: 6,
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius: 6
+  },
   cardText: {
     width: 320,
     height: 80,
@@ -129,5 +148,20 @@ const styles = StyleSheet.create({
     borderRightWidth: 0.2,
     // borderLeftWidth: 0.5,
     borderColor: "#B4B4B4"
+  },
+  cardText2: {
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "space-evenly"
+  },
+  dishHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  dishContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 5
   }
 });
