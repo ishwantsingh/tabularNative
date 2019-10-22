@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   card: {
     alignItems: "center",
     width: 320,
-    height: 380,
+    height: 400,
     marginBottom: 65,
     borderRadius: 6,
     shadowColor: "#000",
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     width: 320,
-    height: 80,
+    height: 100,
     backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "space-evenly",
