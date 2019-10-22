@@ -147,3 +147,4 @@ const styles = StyleSheet.create({
     borderColor: "#B4B4B4"
   }
 });
+//dishicon component working

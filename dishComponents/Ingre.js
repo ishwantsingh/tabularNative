@@ -9,3 +9,4 @@ const Ingre = props => (
 );
 
 export default Ingre;
+//ingre component working
