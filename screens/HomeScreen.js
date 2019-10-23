@@ -1,4 +1,3 @@
-import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import {
   ScrollView,
@@ -196,7 +195,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 HomeScreen.navigationOptions = {
-  title: "NutriCheck"
+  title: "NutriCheck",
+  headerStyle: {
+    backgroundColor: "#2196F3"
+  },
+  headerTitleStyle: {
+    color: "white"
+  }
 };
 
 export default connect(

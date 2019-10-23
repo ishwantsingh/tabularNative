@@ -19,11 +19,11 @@ class SettingsScreen extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          <Text style={styles.bigText}>All Dishes</Text>
+          {/* <Text style={styles.bigText}>All Dishes</Text> */}
           {this.props.dishes &&
             this.props.dishes.map(dish => {
               return (
-                <View style={styles.card}>
+                <View style={styles.card} key={dish.id}>
                   <Image
                     source={{ uri: `${dish.image}` }}
                     style={styles.cardImage}
@@ -54,6 +54,16 @@ const mapStateToProps = state => {
   return {
     dishes: state.dishes.superFinal
   };
+};
+
+SettingsScreen.navigationOptions = {
+  title: "All Dishes",
+  headerStyle: {
+    backgroundColor: "#2196F3"
+  },
+  headerTitleStyle: {
+    color: "white"
+  }
 };
 
 export default connect(
@@ -114,7 +124,3 @@ const styles = StyleSheet.create({
     borderColor: "#B4B4B4"
   }
 });
-
-SettingsScreen.navigationOptions = {
-  title: "Settings"
-};

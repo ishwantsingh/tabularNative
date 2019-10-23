@@ -90,14 +90,20 @@ const mapStateToProps = state => {
   };
 };
 
+LinksScreen.navigationOptions = {
+  title: "Recipe",
+  headerStyle: {
+    backgroundColor: "#2196F3"
+  },
+  headerTitleStyle: {
+    color: "white"
+  }
+};
+
 export default connect(
   mapStateToProps,
   null
 )(LinksScreen);
-
-LinksScreen.navigationOptions = {
-  title: "Links"
-};
 
 const styles = StyleSheet.create({
   container: {
