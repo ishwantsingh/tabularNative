@@ -104,80 +104,80 @@ class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <ScrollView
+        {/* <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
-        >
-          <View style={styles.getStartedContainer}></View>
-          <View style={styles.sliderCon}>
-            <View style={styles.sliderCon2}>
-              <View style={styles.sliderStyle}>
-                <Text>Cal</Text>
-                <Slider
-                  value={this.state.value1}
-                  step={1}
-                  onValueChange={this.handleChangeCal}
-                  testID="cal"
-                />
-                <Text>Value: {this.state.cal}</Text>
-              </View>
-              <View style={styles.sliderStyle}>
-                <Text>Carb</Text>
-                <Slider
-                  value={this.state.value2}
-                  step={1}
-                  onValueChange={this.handleChangeCarb}
-                  testID="carb"
-                />
-                <Text>Value: {this.state.carb}</Text>
-              </View>
-              <View style={styles.sliderStyle}>
-                <Text>Fat</Text>
-                <Slider
-                  value={this.state.value3}
-                  step={1}
-                  onValueChange={this.handleChangeFat}
-                  testID="fat"
-                />
-                <Text>Value: {this.state.fat}</Text>
-              </View>
+        > */}
+        <View style={styles.getStartedContainer}></View>
+        <View style={styles.sliderCon}>
+          <View style={styles.sliderCon2}>
+            <View style={styles.sliderStyle}>
+              <Text>Cal</Text>
+              <Slider
+                value={this.state.value1}
+                step={1}
+                onValueChange={this.handleChangeCal}
+                testID="cal"
+              />
+              <Text>Value: {this.state.cal}</Text>
             </View>
-            <View style={styles.sliderCon2}>
-              <View style={styles.sliderStyle}>
-                <Text>Fiber</Text>
-                <Slider
-                  value={this.state.value4}
-                  step={1}
-                  onValueChange={this.handleChangeFiber}
-                  testID="fiber"
-                />
-                <Text>Value: {this.state.fiber}</Text>
-              </View>
-              <View style={styles.sliderStyle}>
-                <Text>Mineral</Text>
-                <Slider
-                  value={this.state.value5}
-                  step={1}
-                  onValueChange={this.handleChangeMineral}
-                  testID="mineral"
-                />
-                <Text>Value: {this.state.mineral}</Text>
-              </View>
-              <View style={styles.sliderStyle}>
-                <Text>Protein</Text>
-                <Slider
-                  value={this.state.value6}
-                  step={1}
-                  onValueChange={this.handleChangeProtein}
-                  testID="protein"
-                />
-                <Text>Value: {this.state.protein}</Text>
-              </View>
+            <View style={styles.sliderStyle}>
+              <Text>Carb</Text>
+              <Slider
+                value={this.state.value2}
+                step={1}
+                onValueChange={this.handleChangeCarb}
+                testID="carb"
+              />
+              <Text>Value: {this.state.carb}</Text>
             </View>
-
-            <Button onPress={this.handleSubmit} title="Show Recipes" />
+            <View style={styles.sliderStyle}>
+              <Text>Fat</Text>
+              <Slider
+                value={this.state.value3}
+                step={1}
+                onValueChange={this.handleChangeFat}
+                testID="fat"
+              />
+              <Text>Value: {this.state.fat}</Text>
+            </View>
           </View>
-        </ScrollView>
+          <View style={styles.sliderCon2}>
+            <View style={styles.sliderStyle}>
+              <Text>Fiber</Text>
+              <Slider
+                value={this.state.value4}
+                step={1}
+                onValueChange={this.handleChangeFiber}
+                testID="fiber"
+              />
+              <Text>Value: {this.state.fiber}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Text>Mineral</Text>
+              <Slider
+                value={this.state.value5}
+                step={1}
+                onValueChange={this.handleChangeMineral}
+                testID="mineral"
+              />
+              <Text>Value: {this.state.mineral}</Text>
+            </View>
+            <View style={styles.sliderStyle}>
+              <Text>Protein</Text>
+              <Slider
+                value={this.state.value6}
+                step={1}
+                onValueChange={this.handleChangeProtein}
+                testID="protein"
+              />
+              <Text>Value: {this.state.protein}</Text>
+            </View>
+          </View>
+
+          <Button onPress={this.handleSubmit} title="Show Recipes" />
+        </View>
+        {/* </ScrollView> */}
         <View style={styles.borderCheck}>
           <DishList props={this.props} />
         </View>
@@ -213,8 +213,9 @@ const styles = StyleSheet.create({
   borderCheck: {
     // borderWidth: 1,
     // borderColor: "black",
+    marginTop: 15,
     flex: 2,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center"
   },
   container: {
