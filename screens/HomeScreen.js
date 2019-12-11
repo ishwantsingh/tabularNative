@@ -32,9 +32,6 @@ class HomeScreen extends React.Component {
   };
 
   componentDidMount() {
-    // const snapshot = await db.collection("dishes").get();
-    // dataRecieved = snapshot.docs.map(doc => doc.data());
-
     async function getDishes() {
       const snapshot = await db.collection("dishes").get();
       dataRecieved = snapshot.docs.map(doc => doc.data());
@@ -204,10 +201,7 @@ HomeScreen.navigationOptions = {
   }
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(HomeScreen);
+export default connect(null, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   borderCheck: {
