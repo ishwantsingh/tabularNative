@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Slider,
-  Button
-} from "react-native";
+import { StyleSheet, Text, View, Slider, Button } from "react-native";
 import { connect } from "react-redux";
 
 import getInfo from "../state/actions/actionCreators";
@@ -41,51 +34,37 @@ class HomeScreen extends React.Component {
     getDishes()
       .then(function(res) {
         let finalData = res;
-        //  console.log("FINAL DATA", finalData);
         return finalData;
       })
       .then(finalData => {
         this.setState({ superFinal: finalData });
         this.props.setData(this.state.superFinal);
-        // console.log("SUPER FINAL", this.state.superFinal);
       });
-    // dataRecieved.then(data => {
-    //   this.setState({ superFinal: data });
-    // });
-    //   console.log("offoooo", dataRecieved);
-    // console.log("XXXXXXXXXXXX", this.state.superFinal);
   }
   handleChangeCal = e => {
     e == 1 ? this.setState({ cal: "High" }) : this.setState({ cal: "Low" });
-    // console.log("cal=>", this.state.cal);
   };
   handleChangeCarb = e => {
     e == 1 ? this.setState({ carb: "High" }) : this.setState({ carb: "Low" });
-    //  console.log("carb=>", this.state.carb);
   };
   handleChangeFat = e => {
     e == 1 ? this.setState({ fat: "High" }) : this.setState({ fat: "Low" });
-    //  console.log("fat=>", this.state.fat);
   };
   handleChangeFiber = e => {
     e == 1 ? this.setState({ fiber: "High" }) : this.setState({ fiber: "Low" });
-    // console.log("fiber=>", this.state.fiber);
   };
   handleChangeMineral = e => {
     e == 1
       ? this.setState({ mineral: "High" })
       : this.setState({ mineral: "Low" });
-    //  console.log("mineral=>", this.state.mineral);
   };
   handleChangeProtein = e => {
     e == 1
       ? this.setState({ protein: "High" })
       : this.setState({ protein: "Low" });
-    // console.log("protein=>", this.state.protein);
   };
 
   handleSubmit = () => {
-    //  console.log("b", this.state);
     this.props.getInfo(
       this.state.cal,
       this.state.carb,
@@ -97,14 +76,8 @@ class HomeScreen extends React.Component {
   };
 
   render() {
-    // console.log("SUPER FINAL", this.state.superFinal);
-
     return (
       <View style={styles.container}>
-        {/* <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        > */}
         <View style={styles.getStartedContainer}></View>
         <View style={styles.sliderCon}>
           <View style={styles.sliderCon2}>
@@ -174,7 +147,6 @@ class HomeScreen extends React.Component {
 
           <Button onPress={this.handleSubmit} title="Show Recipes" />
         </View>
-        {/* </ScrollView> */}
         <View style={styles.borderCheck}>
           <DishList props={this.props} />
         </View>
@@ -205,8 +177,6 @@ export default connect(null, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   borderCheck: {
-    // borderWidth: 1,
-    // borderColor: "black",
     marginTop: 15,
     flex: 2,
     justifyContent: "center",
@@ -232,15 +202,11 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     paddingHorizontal: 2,
     borderRadius: 6,
-    // alignItems: "flex-start",
     justifyContent: "center"
-    // width: 150
   },
   contentContainer: {
     justifyContent: "flex-start",
     paddingTop: 5
-    // borderWidth: 1,
-    // borderColor: "red"
   },
   welcomeContainer: {
     alignItems: "center",
